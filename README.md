@@ -18,27 +18,6 @@ https://www.kaggle.com/code/manarmohamed24/analysis-healthcare-dataset
 - Cloudera QuickStart VM
 - Oracle VirtualBox
 
-## System Architecture
-The project follows a distributed processing architecture where the dataset is first uploaded to HDFS. The MapReduce job reads the input data from HDFS, processes it in parallel using the Mapper and Reducer, and writes the final output back to HDFS.
-
-## Project Objective
-The main objective of this project is to calculate the **average billing amount per admission type** (e.g., Emergency, Urgent, Elective) using Hadoop MapReduce. This analysis helps demonstrate how distributed systems can efficiently process and aggregate healthcare data.
-
-## Implementation Details
-
-### Data Ingestion
-The healthcare dataset is uploaded into HDFS using Hadoop filesystem commands. A dedicated directory is created to store both input and output data.
-
-### Mapper Implementation
-The Mapper reads each line of the dataset, skips the header row, extracts the admission type and billing amount fields, and emits them as key-value pairs where:
-- Key: Admission Type
-- Value: Billing Amount
-
-### Reducer Implementation
-The Reducer receives grouped billing amounts for each admission type, calculates the sum and count, and outputs the average billing amount for each category.
-
-### Driver Program
-The Driver class configures the MapReduce job, sets the Mapper and Reducer classes, defines input and output paths, and submits the job to the Hadoop cluster for execution.
 
 ## Execution Steps
 1. Upload the dataset to HDFS.
